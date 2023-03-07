@@ -4,14 +4,13 @@ import Alert from 'react-bootstrap/Alert';
 export const AlertMsg = ({validation}) => {
 
 
-let variant = ""
-if(validation === true){ variant = "success" }else{ variant = "danger"}
+let variant = "";
+let valid = "";
+if(validation === true){ variant = "success"; valid = "correctos" }else{ variant = "danger"; valid = "incorrectos"}
     
     let template = ()=>{
         return <Alert key={variant} variant={variant}>
-                    This is a {variant} alert with{' '}
-                    <Alert.Link href="#">an example link</Alert.Link>. Give it a click if
-                    you like.
+                    Los datos ingresados son {valid}!
                 </Alert>
     }
 

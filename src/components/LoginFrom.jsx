@@ -32,14 +32,23 @@ function LoginForm() {
     const onSubmitHandler = (event)=>{
       event.preventDefault()
       let msg = document.getElementById("msg")    
-      if(mail.length > 6 && pass.length > 6){
+      if(mail.length >= 6 && pass.length >= 6){
         msg.style.display = ""
-        setForm({
-          ...form,
-          valid: true
-      })
-      }else{
 
+        if(mail === "desafio@latam.com" && pass === "123456"){
+          setForm({
+            ...form,
+            valid: true
+          })
+        }else{
+          setForm({
+            ...form,
+            valid: false
+          })
+        }
+
+      }else{
+        alert("El mail y password deben tener al menos 6 caracteres")
       }
     };
 
@@ -61,16 +70,19 @@ function LoginForm() {
       {
         (mail=== "" || pass === "")
         ? <Button variant="primary" type="submit" className="button-state" disabled>Submit</Button>
-        : 
-        <>
-          <Button variant="primary" type="submit" className="button-state">Submit</Button>
-          <div id="msg" style={{display: "none"}} className="mt-3">
-            <AlertMsg validation={valid} />  
-          </div>
-        </>
+        : <Button variant="primary" type="submit" className="button-state">Submit</Button>
       }
 
     </Form>
+    {
+      (mail=== "" || pass === "")
+                  ? null
+                  :<>
+                  <div id="msg" style={{display: "none"}} className="mt-3">
+                    <AlertMsg validation={valid} />  
+                  </div>
+                  </>
+    }
     
 </>
 
