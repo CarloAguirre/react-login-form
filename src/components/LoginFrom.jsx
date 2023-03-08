@@ -8,8 +8,11 @@ import { Form } from "react-bootstrap";
 import { AlertMsg } from "./AlertMsg.jsx";
 import "../index.css"
 
-function LoginForm() {
+function LoginForm(formState) {
 
+  let {formstate, setformstate} = formState
+  
+  
 
     const [form, setForm] = useState({
         mail:"",
@@ -31,22 +34,18 @@ function LoginForm() {
     
     const onSubmitHandler = (event)=>{
       event.preventDefault()
-      let msg = document.getElementById("msg")    
+      // let msg = document.getElementById("msg")    
       if(mail.length >= 6 && pass.length >= 6){
-        msg.style.display = ""
+        // msg.style.display = ""
 
         if(mail === "desafio@latam.com" && pass === "123456"){
-          setForm({
-            ...form,
-            valid: true
-          })
+          setformstate(true)
+          return formstate
         }else{
-          setForm({
-            ...form,
-            valid: false
-          })
+          setformstate(false)
+          return formstate
         }
-
+        
       }else{
         alert("El mail y password deben tener al menos 6 caracteres")
       }
@@ -74,7 +73,7 @@ function LoginForm() {
       }
 
     </Form>
-    {
+    {/* {
       (mail=== "" || pass === "")
                   ? null
                   :<>
@@ -82,7 +81,7 @@ function LoginForm() {
                     <AlertMsg validation={valid} />  
                   </div>
                   </>
-    }
+    } */}
     
 </>
 
