@@ -3,7 +3,6 @@ import Alert from 'react-bootstrap/Alert';
 
 export const AlertMsg = ({validation, succes, fail}) => {
 
-
 let variant = "";
 let valid = "";
 if(validation === null){

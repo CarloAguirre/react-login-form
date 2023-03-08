@@ -9,18 +9,13 @@ import "../index.css"
 
 function LoginForm(formState) {
 
-  let {formstate, setformstate} = formState
-  
-  
-
+    let {formstate, setformstate} = formState
     const [form, setForm] = useState({
         mail:"",
         pass: "",
-        valid:""
 
     })
-
-    const {mail, pass, valid} = form;
+    const {mail, pass} = form;
 
     const onChangeHandler = ({target})=>{
         const {value, name} = target
@@ -40,14 +35,13 @@ function LoginForm(formState) {
             ...formstate,
             state: true
           })
-          return formstate
         }else{
           setformstate({
             ...formstate,
             state: false
           })
-          return formstate
         }
+        return formstate
         
       }else{
         alert("El mail y password deben tener al menos 6 caracteres")

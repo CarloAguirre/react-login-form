@@ -15,17 +15,19 @@ export const App = () => {
   
   return (
     <>
-    <p className='ms-2'>mail: desafio@latam.com, password: 123456</p>    
-      <LoginForm formstate = {error} setformstate = {setError}/> 
+    <p className='ms-2'>mail: desafio@latam.com, password: 123456</p> 
+    <div id="loginForm">
+      <LoginForm formstate = {error} setformstate = {setError} /> 
+    </div>   
       {
       (error === null)
       ? null 
-      : <>
-          <div id="msg" className="mt-3">
+      : 
+       <>
+          <div className="mt-3">
                     <AlertMsg validation={error.state} succes={error.succes} fail={error.fail} />  
           </div>
-        </>
-      
+        </>     
       }
     </>
 )
