@@ -6,6 +6,9 @@ export const AlertMsg = ({validation, succes, fail}) => {
 
 let variant = "";
 let valid = "";
+if(validation === null){
+  return
+}
 if(validation === true){ variant = "success"; valid = succes }else{ variant = "danger"; valid = fail}
     
     let template = ()=>{

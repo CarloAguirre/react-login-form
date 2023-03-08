@@ -5,7 +5,6 @@ import { useState } from "react";
 import { Button } from "react-bootstrap";
 import { Form } from "react-bootstrap";
 
-import { AlertMsg } from "./AlertMsg.jsx";
 import "../index.css"
 
 function LoginForm(formState) {
@@ -33,16 +32,20 @@ function LoginForm(formState) {
     }
     
     const onSubmitHandler = (event)=>{
-      event.preventDefault()
-      // let msg = document.getElementById("msg")    
+      event.preventDefault()   
       if(mail.length >= 6 && pass.length >= 6){
-        // msg.style.display = ""
 
         if(mail === "desafio@latam.com" && pass === "123456"){
-          setformstate(true)
+          setformstate({
+            ...formstate,
+            state: true
+          })
           return formstate
         }else{
-          setformstate(false)
+          setformstate({
+            ...formstate,
+            state: false
+          })
           return formstate
         }
         
@@ -72,17 +75,7 @@ function LoginForm(formState) {
         : <Button variant="primary" type="submit" className="button-state">Submit</Button>
       }
 
-    </Form>
-    {/* {
-      (mail=== "" || pass === "")
-                  ? null
-                  :<>
-                  <div id="msg" style={{display: "none"}} className="mt-3">
-                    <AlertMsg validation={valid} />  
-                  </div>
-                  </>
-    } */}
-    
+    </Form>   
 </>
 
   );
