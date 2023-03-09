@@ -25,7 +25,7 @@ export const App = () => {
       : 
        <>
           <div className="mt-3">
-                    <AlertMsg validation={error.state} succes={error.succes} fail={error.fail} />  
+                    <AlertMsg error={error.state} succes={error.succes} fail={error.fail} />  
           </div>
         </>     
       }
