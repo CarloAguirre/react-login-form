@@ -7,9 +7,9 @@ import { Form } from "react-bootstrap";
 
 import "../index.css"
 
-function LoginForm(formState) {
+function LoginForm(errorState) {
 
-    let {formstate, setformstate} = formState
+    let {error, setError} = errorState
     const [form, setForm] = useState({
         mail:"",
         pass: "",
@@ -31,17 +31,17 @@ function LoginForm(formState) {
       if(mail.length >= 6 && pass.length >= 6){
 
         if(mail === "desafio@latam.com" && pass === "123456"){
-          setformstate({
-            ...formstate,
-            state: true
-          })
-        }else{
-          setformstate({
-            ...formstate,
+          setError({
+            ...error,
             state: false
           })
+        }else{
+          setError({
+            ...error,
+            state: true
+          })
         }
-        return formstate
+        return error
         
       }else{
         alert("El mail y password deben tener al menos 6 caracteres")

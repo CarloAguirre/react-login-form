@@ -8,7 +8,7 @@ let valid = "";
 if(validation === null){
   return
 }
-if(validation === true){ variant = "success"; valid = succes }else{ variant = "danger"; valid = fail}
+if(validation === true){ variant = "danger"; valid = fail}else{ variant = "success"; valid = succes }
     
     let template = ()=>{
         return <Alert key={variant} variant={variant}>

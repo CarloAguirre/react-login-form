@@ -17,7 +17,7 @@ export const App = () => {
     <>
     <p className='ms-2'>mail: desafio@latam.com, password: 123456</p> 
     <div id="loginForm">
-      <LoginForm formstate = {error} setformstate = {setError} /> 
+      <LoginForm error = {error} setError = {setError} /> 
     </div>   
       {
       (error === null)
